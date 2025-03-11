@@ -1,0 +1,31 @@
+Classes
+    Program
+        Attributes
+            string promptList[]
+        Methods
+            void GeneratePrompt(string promptList[])
+
+    Menu
+        Attributes
+            int menuNumber: 0 is the main menu, changes to whichever number the user inputs
+        Methods
+            void Run(): while loop
+            void Display()
+
+    Entry
+        Attributes
+            string date
+            string userEntry
+        Methods
+            void InputEntry()
+
+    Journal
+        Attributes
+            
+        Methods
+            Display
+            WriteToFile(string filename)
+            ReadFromFile(string filename)
+
+
+Description

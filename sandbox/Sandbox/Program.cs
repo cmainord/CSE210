@@ -10,8 +10,13 @@ class Program
 }
 
 /*
+
 Console.WriteLine() prints, then moves to next line
 Console.Write() prints and doesn't move to next line
 Console.ReadLine() returns what is written in the current line of the console, then moves to the next line
 Console.Read() returns what is written in the current line of the console
+
+public void WriteToFile(string filename)
+public void ReadFromFile(string filename)
+
 */
