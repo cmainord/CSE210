@@ -1,0 +1,51 @@
+Classes
+
+    Program
+        attributes
+            Scripture scripture[]
+
+        methods
+            void Run(); loop, clears console and prints scripture, waits for input
+            Scripture SelectScripture()
+
+    Scripture
+        attributes
+            Reference _reference
+            Word _words[]
+
+        methods
+            Scripture()
+            string? SplitText(); breaks the full text of the scripture into words
+
+
+
+    Reference
+        attributes
+            string _referenceString
+            string _book
+            int _chapter
+            int _startVerse
+            int _endVerse
+
+        methods
+            string GetBook()
+            int GetChapter()
+            int GetVerse(int startVerseIndex = 1, int endVerseIndex = 1)
+            int GetVerseQuantity()
+            void SetBook(string book)
+            void SetChapter(int chapter)
+            void SetVerses(int startVerse, int endVerse = startVerse)
+            void UpdateReferenceString(); called at the end of each setter
+
+    Word
+        attributes
+            string _word
+            bool _isHidden
+
+        methods
+            string GetWord()
+            int GetLength()
+            int GetChapter()
+            void SetWord()
+            void Hide()
+
