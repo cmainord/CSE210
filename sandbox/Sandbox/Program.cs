@@ -6,6 +6,18 @@ class Program
     {
         Console.WriteLine("Hello Sandbox World!");
         Console.WriteLine("Hello");
+
+
+        int counter = 10;
+        while(counter > 0)
+        {
+            Console.Clear();
+            Console.Write(counter);
+            Thread.Sleep(1000);
+            counter -= 1;
+        }
+        
+        
     }
 }
 
