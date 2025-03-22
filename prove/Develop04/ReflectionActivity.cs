@@ -21,7 +21,7 @@ public class ReflectionActivity : Activity
             
             randomNumber = rng.Next(_initialPrompts.Count());
             Console.Clear();
-            Console.Write($"{_initialPrompts[randomNumber]}\n\nThen, press any key to begin...");
+            Console.Write($"{_initialPrompts[randomNumber]}\n\nThen, press enter to begin...");
             Console.ReadLine();
             
             SetTimer();
