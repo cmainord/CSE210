@@ -1,10 +1,8 @@
-public class Date(int month, int day, int year, int hour, int minute)
+public class Date(int month, int day, int year)
 {
     private int _month = month;
     private int _day = day;
     private int _year = year;
-    private int _hour = hour;
-    private int _minute = minute;
 
     public string GetMonthName()
     {
@@ -60,30 +58,6 @@ public class Date(int month, int day, int year, int hour, int minute)
         }
 
         string display = $"{GetMonthName()} {_day}{yearString}";
-        return display;
-    }
-
-    public string GetTimeDisplay()
-    {
-        string display;
-        string amPm = "AM";
-        int hourDisplay = _hour;
-
-        if(_hour > 12)
-        {
-            amPm = "PM";
-            hourDisplay -= 12;
-        }
-
-        if(_minute > 10)
-        {
-            display = $"{hourDisplay}:{_minute} {amPm}";
-        }
-        else
-        {
-            display = $"{hourDisplay}:0{_minute} {amPm}";
-        }
-
         return display;
     }
 

@@ -1,5 +1,5 @@
-public class Reception(string title, string description, Date date, Address address, string email)
-: Event(title, description, date, address)
+public class Reception(string title, string description, Date date, Time time, Address address, string email)
+: Event(title, description, date, time, address)
 {
     private string _email = email;
 

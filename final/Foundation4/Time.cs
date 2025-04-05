@@ -5,7 +5,7 @@ public class Time
     private int _hour;
     private int _day;
 
-    public Time(int second, int minute, int hour, int day = 0)
+    public Time(int second, int minute = 0, int hour = 0, int day = 0)
     {
         _second = second;
         _minute = minute;
@@ -32,10 +32,10 @@ public class Time
         return ((float)_second / 60) + _minute + (_hour * 60) + (_day * 24 * 60);
     }
 
-    public string GetClockDisplay(bool showSeconds = false, bool inMilitaryTime = false)
+    public string GetClockDisplay(bool showMilitaryTime = false)
     {
         string secondDisplay;
-        if(showSeconds)
+        if(_second > 0)
         {
             secondDisplay = $":{GetPartialDisplay(_second)}";
         }
@@ -44,7 +44,7 @@ public class Time
             secondDisplay = "";
         }
 
-        if(inMilitaryTime)
+        if(showMilitaryTime)
         {
             return $"{GetPartialDisplay(_hour)}:{GetPartialDisplay(_minute)}{secondDisplay}";
         }
@@ -52,27 +52,21 @@ public class Time
         {
             if(_hour > 12)
             {
-                return $"{_hour - 12}:{GetPartialDisplay(_minute)}:{secondDisplay} PM";
+                return $"{_hour - 12}:{GetPartialDisplay(_minute)}{secondDisplay} PM";
             }
             else
             {
-                return $"{_hour}:{GetPartialDisplay(_minute)}:{secondDisplay} AM";
+                return $"{_hour}:{GetPartialDisplay(_minute)}{secondDisplay} AM";
             }
         }
     }
 
-    public string GetCounterDisplay(bool showDays = false)
+    public string GetCounterDisplay(bool omitZero = true, string separator = ":")
     {
-        if(showDays)
-        {
-            return $"{GetPartialDisplay(_day)}:{GetPartialDisplay(_hour)}:{GetPartialDisplay(_minute)}:{GetPartialDisplay(_second)}";
-        }
-        else
-        {
-            return $"{GetPartialDisplay(_hour+(_day*24))}:{GetPartialDisplay(_minute)}:{GetPartialDisplay(_second)}";
-        }
+        string display = $"{GetPartialDisplay(_day,omitZero,separator)}{GetPartialDisplay(_hour,omitZero,separator)}{GetPartialDisplay(_minute,omitZero,separator)}{GetPartialDisplay(_second)}";
+        return display;
     }
-
+    
     private void ParseTime()
     {
         if(_second >= 60)
@@ -98,17 +92,22 @@ public class Time
     This takes one element of the full time display and, if it has fewer than 2 digits,
     it adds a 0 digit in front of it in keeping with standard time display practices.
     */
-    private string GetPartialDisplay(int time)
+    private string GetPartialDisplay(int time, bool omitZero = false, string separator = "")
     {
         string display;
-        if (time >= 10)
+        if (time <= 0 && omitZero)
         {
-            display = $"{time}";
+            display = $"";
+        }
+        else if (time >= 10 || omitZero)
+        {
+            display = $"{time}{separator}";
         }
         else
         {
-            display = $"0{time}";
+            display = $"0{time}{separator}";
         }
+
         return display;
     }
 }
