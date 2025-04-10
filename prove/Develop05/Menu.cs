@@ -46,6 +46,7 @@ public class Menu(string header, List<string> options)
                     break;
             }
         }
+        Thread.Sleep(25);
         return selectedOption;
     }
 }
